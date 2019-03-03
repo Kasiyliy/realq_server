@@ -20,7 +20,7 @@ public class Jobs extends AuditModel{
     private String name;
 
     @ManyToOne
-    @NotNull(message = "category is not null")
+    @NotNull(message = "category is required")
     private Categories category;
 
 

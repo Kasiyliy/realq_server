@@ -4,6 +4,7 @@ import kz.kasya.realq.models.audits.AuditModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Assylkhan
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "categories")
 public class Categories extends AuditModel{
 
+    @NotNull(message = "name is required")
     private String name;
 
     public Categories(String name) {

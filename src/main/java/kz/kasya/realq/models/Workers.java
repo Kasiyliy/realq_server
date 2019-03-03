@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,13 +19,18 @@ import java.util.Set;
 @Entity
 @Table(name = "workers")
 public class Workers extends AuditModel {
+
+    @NotNull(message = "name is required")
     private String name;
 
+    @NotNull(message = "login is required")
     private String login;
 
+    @NotNull(message = "password is required")
     private String password;
 
     @ManyToOne
+    @NotNull(message = "task is required")
     private Tasks task;
 
     @ManyToMany

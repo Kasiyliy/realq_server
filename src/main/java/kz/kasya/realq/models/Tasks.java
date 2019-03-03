@@ -5,6 +5,7 @@ import kz.kasya.realq.models.audits.AuditModel;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Assylkhan
@@ -15,9 +16,11 @@ import javax.persistence.Table;
 @Table(name = "tasks")
 public class Tasks extends AuditModel{
 
+    @NotNull(message = "iin is required")
     private String iin;
 
     @ManyToOne
+    @NotNull(message = "job is required")
     private Jobs job;
 
     public Tasks(String iin, Jobs job) {
