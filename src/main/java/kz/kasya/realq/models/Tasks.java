@@ -23,9 +23,16 @@ public class Tasks extends AuditModel{
     @NotNull(message = "job is required")
     private Jobs job;
 
-    public Tasks(String iin, Jobs job) {
+
+    @ManyToOne
+    @NotNull(message = "worker is required")
+    private Workers worker;
+
+
+    public Tasks(@NotNull(message = "iin is required") String iin, @NotNull(message = "job is required") Jobs job, @NotNull(message = "worker is required") Workers worker) {
         this.iin = iin;
         this.job = job;
+        this.worker = worker;
     }
 
     public Tasks() {
@@ -47,4 +54,11 @@ public class Tasks extends AuditModel{
         this.job = job;
     }
 
+    public Workers getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Workers worker) {
+        this.worker = worker;
+    }
 }

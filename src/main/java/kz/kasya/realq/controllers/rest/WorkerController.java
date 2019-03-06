@@ -32,9 +32,9 @@ public class WorkerController {
 
     @GetMapping(path = "workers/{id}")
     public ResponseEntity get(@PathVariable Long id){
-        Workers category = workerService.getById(id);
+        Workers worker = workerService.getById(id);
 
-        return category!=null ? new ResponseEntity(category, HttpStatus.OK):
+        return worker!=null ? new ResponseEntity<Workers>(worker, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
@@ -47,14 +47,14 @@ public class WorkerController {
     }
 
     @RequestMapping(path = "workers/{id}", method = {RequestMethod.PATCH , RequestMethod.PUT})
-    public ResponseEntity update(@RequestBody Workers category){
-        return workerService.update(category) ? new ResponseEntity(category, HttpStatus.OK):
+    public ResponseEntity update(@RequestBody Workers worker){
+        return workerService.update(worker) ? new ResponseEntity<Workers>(worker, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @PostMapping(path = "workers")
-    public ResponseEntity add(@RequestBody Workers category){
-        return workerService.add(category) ? ResponseEntity.status(HttpStatus.ACCEPTED).build() :
+    public ResponseEntity add(@RequestBody Workers worker){
+        return workerService.add(worker) ? new ResponseEntity<Workers>(worker,HttpStatus.ACCEPTED) :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
     }

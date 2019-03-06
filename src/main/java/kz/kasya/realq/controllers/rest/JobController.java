@@ -32,7 +32,7 @@ public class JobController {
     public ResponseEntity get(@PathVariable Long id){
         Jobs job = jobService.getById(id);
 
-        return job!=null ? new ResponseEntity(job, HttpStatus.OK):
+        return job!=null ? new ResponseEntity<Jobs>(job, HttpStatus.OK):
             ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
@@ -46,13 +46,13 @@ public class JobController {
 
     @RequestMapping(path = "jobs/{id}", method = {RequestMethod.PATCH , RequestMethod.PUT})
     public ResponseEntity update(@RequestBody Jobs job){
-        return jobService.update(job) ? new ResponseEntity(job, HttpStatus.OK):
+        return jobService.update(job) ? new ResponseEntity<Jobs>(job, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @PostMapping(path = "jobs")
     public ResponseEntity add(@RequestBody Jobs job){
-        return jobService.add(job) ? ResponseEntity.status(HttpStatus.ACCEPTED).build() :
+        return jobService.add(job) ? new ResponseEntity<Jobs>(job,HttpStatus.ACCEPTED):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
     }

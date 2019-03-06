@@ -32,7 +32,7 @@ public class CateogryController {
     public ResponseEntity get(@PathVariable Long id){
         Categories category = categoryService.getById(id);
 
-        return category!=null ? new ResponseEntity(category, HttpStatus.OK):
+        return category!=null ? new ResponseEntity<Categories>(category, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
@@ -46,13 +46,13 @@ public class CateogryController {
 
     @RequestMapping(path = "categories/{id}", method = {RequestMethod.PATCH , RequestMethod.PUT})
     public ResponseEntity update(@RequestBody Categories category){
-        return categoryService.update(category) ? new ResponseEntity(category, HttpStatus.OK):
+        return categoryService.update(category) ? new ResponseEntity<Categories>(category, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @PostMapping(path = "categories")
-    public ResponseEntity add(@RequestBody Categories category){
-        return categoryService.add(category) ? ResponseEntity.status(HttpStatus.ACCEPTED).build() :
+    public ResponseEntity<Categories> add(@RequestBody Categories category){
+        return categoryService.add(category) ? new ResponseEntity<Categories>(category,HttpStatus.ACCEPTED):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
     }

@@ -31,7 +31,7 @@ public class TaskController {
     public ResponseEntity get(@PathVariable Long id){
         Tasks task = taskService.getById(id);
 
-        return task!=null ? new ResponseEntity(task, HttpStatus.OK):
+        return task!=null ? new ResponseEntity<Tasks>(task, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
@@ -45,13 +45,13 @@ public class TaskController {
 
     @RequestMapping(path = "tasks/{id}", method = {RequestMethod.PATCH , RequestMethod.PUT})
     public ResponseEntity update(@RequestBody Tasks task){
-        return taskService.update(task) ? new ResponseEntity(task, HttpStatus.OK):
+        return taskService.update(task) ? new ResponseEntity<Tasks>(task, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @PostMapping(path = "tasks")
     public ResponseEntity add(@RequestBody Tasks task){
-        return taskService.add(task) ? ResponseEntity.status(HttpStatus.ACCEPTED).build() :
+        return taskService.add(task) ? new ResponseEntity<Tasks>(task,HttpStatus.ACCEPTED):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
     }
