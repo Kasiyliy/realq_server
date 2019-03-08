@@ -14,4 +14,5 @@ import java.util.List;
  */
 @Repository
 public interface CategoryRepository extends JpaRepository<Categories,Long> {
+
 }

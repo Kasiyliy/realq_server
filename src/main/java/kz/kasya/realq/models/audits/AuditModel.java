@@ -25,6 +25,10 @@ public abstract class AuditModel implements Serializable {
     @LastModifiedDate
     private Date updatedAt = new Date();
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "deleted_at")
+    private Date deletedAt;
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -47,5 +51,13 @@ public abstract class AuditModel implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Date deletedAt) {
+        this.deletedAt = deletedAt;
     }
 }
