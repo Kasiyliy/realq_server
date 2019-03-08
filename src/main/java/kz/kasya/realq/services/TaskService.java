@@ -47,6 +47,7 @@ public class TaskService {
         Root<Tasks> root = criteriaQuery.from(Tasks.class);
 
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
+        criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         criteriaQuery.where(predicate);
         List<Tasks> tasks = session.createQuery(criteriaQuery).list();
         session.close();

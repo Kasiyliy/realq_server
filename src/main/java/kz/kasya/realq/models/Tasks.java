@@ -1,8 +1,6 @@
 package kz.kasya.realq.models;
 
 import kz.kasya.realq.models.audits.AuditModel;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -22,13 +20,12 @@ public class Tasks extends AuditModel{
     @NotNull(message = "iin is required")
     private String iin;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     @NotNull(message = "job is required")
     private Jobs job;
 
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @NotNull(message = "worker is required")
     private Workers worker;
 

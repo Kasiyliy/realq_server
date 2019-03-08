@@ -58,17 +58,18 @@ public class WorkerService {
         Root<Workers> root = criteriaQuery.from(Workers.class);
 
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
+        criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         criteriaQuery.where(predicate);
         List<Workers> workers = session.createQuery(criteriaQuery).list();
         session.close();
         return  workers;
     }
 
-    public boolean add(Workers job){
-        if(job==null || job.getId()!=null || job.getTask()==null){
+    public boolean add(Workers worker){
+        if(worker==null || worker.getId()!=null){
             return false;
         }else{
-            workerRepository.save(job);
+            workerRepository.save(worker);
             return true;
         }
     }
