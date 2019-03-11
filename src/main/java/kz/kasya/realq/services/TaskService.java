@@ -40,7 +40,48 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public List<Tasks> getAll(){
+    public List<Tasks> getAll(Boolean desc){
+        Session session = hibernateFactory.openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
+        Root<Tasks> root = criteriaQuery.from(Tasks.class);
+
+        Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
+        Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
+        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2);
+        if(desc == null || desc.equals(true)){
+            criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+        }else{
+            criteriaQuery.orderBy(criteriaBuilder.asc(root.get("id")));
+        }
+        criteriaQuery.where(andPredicate);
+        List<Tasks> tasks = session.createQuery(criteriaQuery).list();
+        session.close();
+        return  tasks;
+    }
+
+    public List<Tasks> getAllWithFixedNumberAndExcept(int count, List<Long> ids, Boolean desc){
+        Session session = hibernateFactory.openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
+        Root<Tasks> root = criteriaQuery.from(Tasks.class);
+
+        Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
+        Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
+        Predicate predicate3 = criteriaBuilder.not(root.get("id").in(ids));
+        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2, predicate3);
+        if(desc == null || desc.equals(true)){
+            criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+        }else{
+            criteriaQuery.orderBy(criteriaBuilder.asc(root.get("id")));
+        }
+        criteriaQuery.where(andPredicate);
+        List<Tasks> tasks = session.createQuery(criteriaQuery).setMaxResults(count).list();
+        session.close();
+        return  tasks;
+    }
+
+    public List<Tasks> getAllWithServiced(){
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
@@ -64,20 +105,20 @@ public class TaskService {
         }
     }
 
-    public boolean add(Tasks job){
-        if(job==null || job.getId()!=null || job.getJob()==null){
+    public boolean add(Tasks task){
+        if(task==null || task.getId()!=null || task.getJob()==null){
             return false;
         }else{
-            taskRepository.save(job);
+            taskRepository.save(task);
             return true;
         }
     }
 
-    public boolean update(Tasks job){
-        if(job==null || job.getId()==null){
+    public boolean update(Tasks task){
+        if(task==null || task.getId()==null){
             return false;
         }else{
-            taskRepository.save(job);
+            taskRepository.save(task);
             return true;
         }
     }

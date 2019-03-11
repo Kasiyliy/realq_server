@@ -2,10 +2,7 @@ package kz.kasya.realq.models;
 
 import kz.kasya.realq.models.audits.AuditModel;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -26,14 +23,16 @@ public class Tasks extends AuditModel{
 
 
     @ManyToOne(cascade=CascadeType.MERGE)
-    @NotNull(message = "worker is required")
     private Workers worker;
 
+    private boolean completed = false;
 
-    public Tasks(@NotNull(message = "iin is required") String iin, @NotNull(message = "job is required") Jobs job, @NotNull(message = "worker is required") Workers worker) {
+    public Tasks(@NotNull(message = "iin is required") String iin, @NotNull(message = "job is required") Jobs job,
+                 Workers worker, boolean completed) {
         this.iin = iin;
         this.job = job;
         this.worker = worker;
+        this.completed = completed;
     }
 
     public Tasks() {
@@ -61,5 +60,13 @@ public class Tasks extends AuditModel{
 
     public void setWorker(Workers worker) {
         this.worker = worker;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

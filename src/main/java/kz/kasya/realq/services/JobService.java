@@ -1,5 +1,6 @@
 package kz.kasya.realq.services;
 
+import kz.kasya.realq.models.Categories;
 import kz.kasya.realq.models.Jobs;
 import kz.kasya.realq.repositories.JobRepository;
 import org.hibernate.Session;
@@ -48,6 +49,23 @@ public class JobService {
 
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
         criteriaQuery.where(predicate);
+        criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+        List<Jobs> jobs = session.createQuery(criteriaQuery).list();
+
+        session.close();
+        return  jobs;
+    }
+
+    public List<Jobs> getAllBy(Categories category){
+        Session session = hibernateFactory.openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Jobs> criteriaQuery = criteriaBuilder.createQuery(Jobs.class);
+        Root<Jobs> root = criteriaQuery.from(Jobs.class);
+
+        Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
+        Predicate predicate2 = criteriaBuilder.equal(root.get("category"), category);
+        Predicate andPredicate = criteriaBuilder.and(predicate, predicate2);
+        criteriaQuery.where(andPredicate);
         criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         List<Jobs> jobs = session.createQuery(criteriaQuery).list();
 

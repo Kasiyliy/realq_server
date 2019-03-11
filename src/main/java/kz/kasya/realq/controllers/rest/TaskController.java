@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,8 +26,20 @@ public class TaskController {
     TaskService taskService;
 
     @GetMapping(path = "tasks")
-    public ResponseEntity<List<Tasks>> index(){
-        return  new ResponseEntity<List<Tasks>>(taskService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<Tasks>> index(@RequestParam(required = false) Integer count,
+                                             @RequestParam(required = false) Long ids[],
+                                             @RequestParam(required = false) Boolean desc){
+
+        List<Tasks> tasks = null;
+
+        if(count!=null && ids == null){
+            tasks = taskService.getAllWithFixedNumberAndExcept(count, Arrays.asList(0L), desc);
+        }else if(count!=null && ids !=null){
+            tasks = taskService.getAllWithFixedNumberAndExcept(count,Arrays.asList(ids), desc);
+        }else{
+            tasks = taskService.getAll(desc);
+        }
+        return  new ResponseEntity<List<Tasks>>(tasks, HttpStatus.OK);
     }
 
     @GetMapping(path = "tasks/{id}")
