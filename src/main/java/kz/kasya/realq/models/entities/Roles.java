@@ -36,7 +36,4 @@ public class Roles {
 
     @Column
     private String description;
-
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
-    private Set<Workers> workers;
 }

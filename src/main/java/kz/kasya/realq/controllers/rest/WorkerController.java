@@ -5,6 +5,8 @@ import kz.kasya.realq.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +23,9 @@ public class WorkerController {
 
     @Autowired
     WorkerService workerService;
+
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @GetMapping(path = "workers")
@@ -52,6 +57,11 @@ public class WorkerController {
 
     @PostMapping(path = "workers")
     public ResponseEntity add(@RequestBody Workers worker){
+        if(worker != null || worker.getPassword() != null){
+            worker.setPassword(bCryptPasswordEncoder.encode(worker.getPassword()));
+        }else{
+            return ResponseEntity.badRequest().build();
+        }
         return workerService.add(worker) ? new ResponseEntity<Workers>(worker,HttpStatus.ACCEPTED) :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 

@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
@@ -24,9 +28,8 @@ import java.util.*;
  * on 28.02.2019
  * @project realq
  */
-@Service("userService")
-public class WorkerService
-//        implements UserDetailsService
+@Service
+public class WorkerService implements UserDetailsService
 
 {
     @Autowired
@@ -52,23 +55,21 @@ public class WorkerService
             return null;
         }
     }
-//
-//    @Override
-//    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-//        Workers user = workerRepository.findByLogin(login);
-//        if(user == null){
-//            throw new UsernameNotFoundException("Invalid username or password.");
-//        }
-//        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
-//    }
-//
-//    private Set getAuthority(Workers user) {
-//        Set authorities = new HashSet<>();
-//        user.getRoles().forEach(role -> {
-//            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
-//        });
-//        return authorities;
-//    }
+
+    @Override
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        Workers user = workerRepository.findByLogin(login);
+        if(user == null){
+            throw new UsernameNotFoundException("Invalid username or password.");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
+    }
+
+    private Set getAuthority(Workers user) {
+        Set authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
+        return authorities;
+    }
 
     public List<Workers> getAllWithTrashed(){
         return workerRepository.findAll();
