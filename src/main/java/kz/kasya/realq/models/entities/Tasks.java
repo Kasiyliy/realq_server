@@ -1,6 +1,9 @@
-package kz.kasya.realq.models;
+package kz.kasya.realq.models.entities;
 
 import kz.kasya.realq.models.audits.AuditModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +15,8 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "tasks")
+@Data
+@NoArgsConstructor
 public class Tasks extends AuditModel{
 
     @NotNull(message = "iin is required")
@@ -35,38 +40,4 @@ public class Tasks extends AuditModel{
         this.completed = completed;
     }
 
-    public Tasks() {
-    }
-
-    public String getIin() {
-        return iin;
-    }
-
-    public void setIin(String iin) {
-        this.iin = iin;
-    }
-
-    public Jobs getJob() {
-        return job;
-    }
-
-    public void setJob(Jobs job) {
-        this.job = job;
-    }
-
-    public Workers getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Workers worker) {
-        this.worker = worker;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
 }

@@ -1,6 +1,9 @@
-package kz.kasya.realq.models;
+package kz.kasya.realq.models.entities;
 
 import kz.kasya.realq.models.audits.AuditModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,6 +19,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "jobs")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Jobs extends AuditModel{
 
     private String name;
@@ -23,29 +29,4 @@ public class Jobs extends AuditModel{
     @ManyToOne(cascade=CascadeType.MERGE)
     @NotNull(message = "category is required")
     private Categories category;
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Categories getCategory() {
-        return category;
-    }
-
-    public void setCategory(Categories category) {
-        this.category = category;
-    }
-
-    public Jobs(String name, Categories category) {
-        this.name = name;
-        this.category = category;
-    }
-
-    public Jobs() {
-    }
 }

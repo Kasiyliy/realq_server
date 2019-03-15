@@ -1,6 +1,6 @@
 package kz.kasya.realq.repositories;
 
-import kz.kasya.realq.models.Jobs;
+import kz.kasya.realq.models.entities.Jobs;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package kz.kasya.realq.controllers;
 
-import kz.kasya.realq.models.Message;
-import kz.kasya.realq.models.MessageCode;
+import kz.kasya.realq.models.entities.Message;
+import kz.kasya.realq.models.requests.MessageCode;
 import kz.kasya.realq.services.CalculationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,8 +38,9 @@ public class SocketThreadController {
         System.out.println(message.getSender() + ": " + message.getContent());
 
         if(message.getMessageCode() == MessageCode.ADDED){
-
         }
+
+
 
         return message;
     }

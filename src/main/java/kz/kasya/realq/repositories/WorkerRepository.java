@@ -1,6 +1,6 @@
 package kz.kasya.realq.repositories;
 
-import kz.kasya.realq.models.Workers;
+import kz.kasya.realq.models.entities.Workers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WorkerRepository extends JpaRepository<Workers,Long>{
-
+    public Workers findByLogin(String login);
 }

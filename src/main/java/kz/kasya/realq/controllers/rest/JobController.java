@@ -1,7 +1,7 @@
 package kz.kasya.realq.controllers.rest;
 
-import kz.kasya.realq.models.Categories;
-import kz.kasya.realq.models.Jobs;
+import kz.kasya.realq.models.entities.Categories;
+import kz.kasya.realq.models.entities.Jobs;
 import kz.kasya.realq.services.CategoryService;
 import kz.kasya.realq.services.JobService;
 import org.springframework.beans.factory.annotation.Autowired;

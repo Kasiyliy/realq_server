@@ -1,6 +1,6 @@
 package kz.kasya.realq.services;
 
-import kz.kasya.realq.models.Tasks;
+import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.repositories.TaskRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

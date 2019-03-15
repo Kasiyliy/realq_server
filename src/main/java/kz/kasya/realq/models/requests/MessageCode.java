@@ -1,4 +1,4 @@
-package kz.kasya.realq.models;
+package kz.kasya.realq.models.requests;
 
 /**
  * @author Assylkhan

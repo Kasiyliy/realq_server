@@ -1,6 +1,6 @@
 package kz.kasya.realq.controllers.rest;
 
-import kz.kasya.realq.models.Categories;
+import kz.kasya.realq.models.entities.Categories;
 import kz.kasya.realq.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

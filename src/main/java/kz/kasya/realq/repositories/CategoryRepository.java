@@ -1,11 +1,8 @@
 package kz.kasya.realq.repositories;
 
-import kz.kasya.realq.models.Categories;
+import kz.kasya.realq.models.entities.Categories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author Assylkhan

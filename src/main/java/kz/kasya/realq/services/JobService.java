@@ -1,7 +1,7 @@
 package kz.kasya.realq.services;
 
-import kz.kasya.realq.models.Categories;
-import kz.kasya.realq.models.Jobs;
+import kz.kasya.realq.models.entities.Categories;
+import kz.kasya.realq.models.entities.Jobs;
 import kz.kasya.realq.repositories.JobRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

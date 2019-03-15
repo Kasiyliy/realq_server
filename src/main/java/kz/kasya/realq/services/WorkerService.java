@@ -1,11 +1,15 @@
 package kz.kasya.realq.services;
 
-import kz.kasya.realq.models.Tasks;
-import kz.kasya.realq.models.Workers;
+import kz.kasya.realq.models.entities.Workers;
 import kz.kasya.realq.repositories.WorkerRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
@@ -13,21 +17,23 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author Assylkhan
  * on 28.02.2019
  * @project realq
  */
-@Service
-public class WorkerService {
+@Service("userService")
+public class WorkerService
+//        implements UserDetailsService
+
+{
     @Autowired
     WorkerRepository workerRepository;
 
     private SessionFactory hibernateFactory;
+
 
     @Autowired
     public WorkerService(EntityManagerFactory factory) {
@@ -46,6 +52,23 @@ public class WorkerService {
             return null;
         }
     }
+//
+//    @Override
+//    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+//        Workers user = workerRepository.findByLogin(login);
+//        if(user == null){
+//            throw new UsernameNotFoundException("Invalid username or password.");
+//        }
+//        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
+//    }
+//
+//    private Set getAuthority(Workers user) {
+//        Set authorities = new HashSet<>();
+//        user.getRoles().forEach(role -> {
+//            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
+//        });
+//        return authorities;
+//    }
 
     public List<Workers> getAllWithTrashed(){
         return workerRepository.findAll();
@@ -69,6 +92,7 @@ public class WorkerService {
         if(worker==null || worker.getId()!=null){
             return false;
         }else{
+            //worker.setPassword(bcryptEncoder.encode(worker.getPassword()));
             workerRepository.save(worker);
             return true;
         }

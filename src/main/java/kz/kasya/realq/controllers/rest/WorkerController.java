@@ -1,8 +1,6 @@
 package kz.kasya.realq.controllers.rest;
 
-import kz.kasya.realq.models.Workers;
-import kz.kasya.realq.models.Workers;
-import kz.kasya.realq.repositories.WorkerRepository;
+import kz.kasya.realq.models.entities.Workers;
 import kz.kasya.realq.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,10 @@
-package kz.kasya.realq.models;
+package kz.kasya.realq.models.entities;
 
 import kz.kasya.realq.models.audits.AuditModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,24 +17,10 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "categories")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Categories extends AuditModel{
-
     @NotNull(message = "name is required")
-    private String name;
-
-    public Categories(String name) {
-        this.name = name;
-    }
-
-    public Categories() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    private @NonNull String name;
 }
