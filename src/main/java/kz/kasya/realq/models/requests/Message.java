@@ -1,5 +1,6 @@
-package kz.kasya.realq.models.entities;
+package kz.kasya.realq.models.requests;
 
+import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.models.requests.MessageCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -58,12 +58,43 @@ public class WorkerService implements UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        Workers user = workerRepository.findByLogin(login);
+        Workers user = findByLogin(login);
         if(user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
     }
+
+    public Workers findByLogin(String login){
+        Session session = hibernateFactory.openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Workers> criteriaQuery = criteriaBuilder.createQuery(Workers.class);
+        Root<Workers> root = criteriaQuery.from(Workers.class);
+
+        Predicate predicate1 = criteriaBuilder.isNull(root.get("deletedAt"));
+        Predicate predicate2 = criteriaBuilder.equal(root.get("login"), login);
+        Predicate andPredicate = criteriaBuilder.and(predicate1,predicate2);
+
+        criteriaQuery.where(andPredicate);
+        Workers worker ;
+        try{
+            worker = session.createQuery(criteriaQuery).getSingleResult();
+        }catch (Exception e){
+            worker = null;
+        }
+        session.close();
+        return  worker;
+    }
+
+    public Workers findByLoginWithTrashed(String login){
+        Workers worker = workerRepository.findByLogin(login);
+        return worker;
+    }
+
+    public boolean isLoginAlreadyInUse(String login){
+        return findByLoginWithTrashed(login) != null;
+    }
+
 
     private Set getAuthority(Workers user) {
         Set authorities = new HashSet<>();
@@ -93,7 +124,6 @@ public class WorkerService implements UserDetailsService
         if(worker==null || worker.getId()!=null){
             return false;
         }else{
-            //worker.setPassword(bcryptEncoder.encode(worker.getPassword()));
             workerRepository.save(worker);
             return true;
         }

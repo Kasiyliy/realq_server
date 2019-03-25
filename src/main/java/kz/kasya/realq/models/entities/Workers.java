@@ -27,6 +27,7 @@ public class Workers extends AuditModel {
     @NotNull(message = "name is required")
     private String name;
 
+    @Column(unique = true)
     @NotNull(message = "login is required")
     private String login;
 

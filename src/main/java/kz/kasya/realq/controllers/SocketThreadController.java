@@ -1,6 +1,6 @@
 package kz.kasya.realq.controllers;
 
-import kz.kasya.realq.models.entities.Message;
+import kz.kasya.realq.models.requests.Message;
 import kz.kasya.realq.models.requests.MessageCode;
 import kz.kasya.realq.services.CalculationService;
 import org.slf4j.Logger;
@@ -10,6 +10,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  * @author Assylkhan
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Controller;
  * @project realq
  */
 @Controller
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SocketThreadController {
     private static final Logger logger = LoggerFactory.getLogger(WebSocketEventListener.class);
 
@@ -39,9 +41,6 @@ public class SocketThreadController {
 
         if(message.getMessageCode() == MessageCode.ADDED){
         }
-
-
-
         return message;
     }
 

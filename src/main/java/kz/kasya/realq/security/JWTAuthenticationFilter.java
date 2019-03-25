@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import kz.kasya.realq.models.entities.Workers;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -53,5 +55,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        String responseToClient= token;
+        res.setStatus(HttpServletResponse.SC_OK);
+        res.setHeader(HttpHeaders.CONTENT_TYPE, "text");
+        res.getWriter().print(responseToClient);
+        res.getWriter().flush();
+        res.getWriter().close();
     }
 }
