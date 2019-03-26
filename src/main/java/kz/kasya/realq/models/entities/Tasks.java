@@ -1,5 +1,6 @@
 package kz.kasya.realq.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import kz.kasya.realq.models.audits.AuditModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +27,7 @@ public class Tasks extends AuditModel{
     @NotNull(message = "job is required")
     private Jobs job;
 
-
+    @JsonIgnore
     @ManyToOne(cascade=CascadeType.MERGE)
     private Workers worker;
 

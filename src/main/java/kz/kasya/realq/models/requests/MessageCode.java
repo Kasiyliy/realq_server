@@ -6,7 +6,10 @@ package kz.kasya.realq.models.requests;
  * @project realq
  */
 public enum MessageCode {
-    ADDED,
+    TASK_ADDED_TASK_TAKEN,
+    TASK_ADDED,
+    TASK_TAKEN,
+    TASK_RELEASED,
     DO_SEARCH,
     FINISHED;
 }

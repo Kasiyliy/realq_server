@@ -1,13 +1,11 @@
 package kz.kasya.realq.models.requests;
 
 import kz.kasya.realq.models.entities.Tasks;
-import kz.kasya.realq.models.requests.MessageCode;
+import kz.kasya.realq.models.entities.Workers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
+import lombok.ToString;
 
 /**
  * @author Assylkhan
@@ -17,9 +15,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Message {
     private String content;
     private String sender;
     private MessageCode messageCode;
-    private List<Tasks> tasks = new ArrayList<>();
+    private Workers worker;
+    private Tasks task;
+    private Tasks addedTask;
 }

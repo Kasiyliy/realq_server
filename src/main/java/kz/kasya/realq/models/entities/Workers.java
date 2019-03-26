@@ -1,7 +1,7 @@
 package kz.kasya.realq.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import kz.kasya.realq.models.audits.AuditModel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -58,5 +59,10 @@ public class Workers extends AuditModel {
         this.task = task;
         this.jobs = jobs;
         this.role = role;
+    }
+
+    public void setTask(Tasks task) {
+        this.task = task;
+        this.setUpdatedAt(new Date());
     }
 }

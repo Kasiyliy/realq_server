@@ -1,5 +1,6 @@
 package kz.kasya.realq.services;
 
+import kz.kasya.realq.models.entities.Jobs;
 import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.repositories.TaskRepository;
 import org.hibernate.Session;
@@ -15,6 +16,8 @@ import javax.persistence.criteria.Root;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Assylkhan
@@ -48,7 +51,8 @@ public class TaskService {
 
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
         Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
-        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2);
+        Predicate predicate3 = criteriaBuilder.isFalse(root.get("completed"));
+        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2,predicate3);
         if(desc == null || desc.equals(true)){
             criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         }else{
@@ -69,7 +73,8 @@ public class TaskService {
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
         Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
         Predicate predicate3 = criteriaBuilder.not(root.get("id").in(ids));
-        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2, predicate3);
+        Predicate predicate4 = criteriaBuilder.isFalse(root.get("completed"));
+        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2, predicate3,predicate4);
         if(desc == null || desc.equals(true)){
             criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         }else{
@@ -79,6 +84,26 @@ public class TaskService {
         List<Tasks> tasks = session.createQuery(criteriaQuery).setMaxResults(count).list();
         session.close();
         return  tasks;
+    }
+
+    public Tasks getTaskByJobs(Set<Jobs> jobs){
+        Session session = hibernateFactory.openSession();
+        List<Long> ids = jobs.stream().map(Jobs::getId).collect(Collectors.toList());
+        String hql = "select t FROM Tasks t inner join t.job j where t.deletedAt is null and t.completed = false " +
+                " and t.worker is null and j.id in (:ids) group by t.id having t.id = max(t.id) ";
+        Tasks task = null;
+        try{
+
+            task = (Tasks) session.createQuery(hql)
+                    .setMaxResults(1)
+                    .setParameterList("ids" , ids)
+                    .getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return task;
     }
 
     public List<Tasks> getAllWithServiced(){

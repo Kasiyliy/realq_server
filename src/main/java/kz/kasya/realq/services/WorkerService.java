@@ -1,5 +1,7 @@
 package kz.kasya.realq.services;
 
+import kz.kasya.realq.models.entities.Jobs;
+import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.models.entities.Workers;
 import kz.kasya.realq.repositories.WorkerRepository;
 import org.hibernate.Session;
@@ -22,6 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Assylkhan
@@ -100,6 +103,26 @@ public class WorkerService implements UserDetailsService
         Set authorities = new HashSet<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
         return authorities;
+    }
+
+    public Workers getFreeWorkerByJobs(Jobs job){
+        Session session = hibernateFactory.openSession();
+
+        String hql = "select w FROM Workers w inner join w.jobs j where w.deletedAt is null  " +
+                " and w.task is null and j.id = (:id) order by j.createdAt asc";
+        Workers worker = null;
+        try{
+
+            worker = (Workers) session.createQuery(hql)
+                    .setMaxResults(1)
+                    .setParameter("id" , job.getId())
+                    .getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return worker;
     }
 
     public List<Workers> getAllWithTrashed(){
