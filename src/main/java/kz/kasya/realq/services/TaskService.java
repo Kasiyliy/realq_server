@@ -4,6 +4,8 @@ import kz.kasya.realq.models.entities.Jobs;
 import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.models.responses.TaskWithWorker;
 import kz.kasya.realq.repositories.TaskRepository;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
  * @project realq
  */
 @Service
+@Slf4j
 public class TaskService {
     @Autowired
     TaskRepository taskRepository;
@@ -120,7 +123,7 @@ public class TaskService {
                     .setParameterList("ids" , ids)
                     .getSingleResult();
         }catch (Exception e){
-            e.printStackTrace();
+            log.info(e.getMessage());
         }finally {
             session.close();
         }
