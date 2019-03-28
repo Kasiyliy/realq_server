@@ -1,6 +1,7 @@
 package kz.kasya.realq.controllers.rest;
 
 import kz.kasya.realq.models.entities.Tasks;
+import kz.kasya.realq.models.responses.TaskWithWorker;
 import kz.kasya.realq.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,12 @@ public class TaskController {
             tasks = taskService.getAll(desc);
         }
         return  new ResponseEntity<List<Tasks>>(tasks, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "tasks/all")
+    public ResponseEntity<List<TaskWithWorker>> index(){
+        List<TaskWithWorker> tasks = taskService.getAllNoCompleted(false);
+        return  new ResponseEntity(tasks, HttpStatus.OK);
     }
 
     @GetMapping(path = "tasks/{id}")

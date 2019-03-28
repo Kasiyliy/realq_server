@@ -2,6 +2,7 @@ package kz.kasya.realq.services;
 
 import kz.kasya.realq.models.entities.Jobs;
 import kz.kasya.realq.models.entities.Tasks;
+import kz.kasya.realq.models.responses.TaskWithWorker;
 import kz.kasya.realq.repositories.TaskRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -62,6 +64,25 @@ public class TaskService {
         List<Tasks> tasks = session.createQuery(criteriaQuery).list();
         session.close();
         return  tasks;
+    }
+
+    public List<TaskWithWorker> getAllNoCompleted(Boolean desc){
+        Session session = hibernateFactory.openSession();
+
+        String hql = "FROM Tasks t where t.deletedAt is null and t.completed = false";
+
+        if(desc == null || desc.equals(true)){
+            hql += " order by id desc";
+        }else{
+            hql += " order by id asc";
+        }
+        Query query = session.createQuery(hql);
+        List<Tasks> tasks = query.getResultList();
+        session.close();
+
+        List<TaskWithWorker> taskWithWorkers = tasks.stream().map((t -> new TaskWithWorker(t,t.getWorker()))).collect(Collectors.toList());
+
+        return  taskWithWorkers;
     }
 
     public List<Tasks> getAllWithFixedNumberAndExcept(int count, List<Long> ids, Boolean desc){
