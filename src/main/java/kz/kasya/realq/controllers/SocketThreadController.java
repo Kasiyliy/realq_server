@@ -15,9 +15,6 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import sun.tools.jconsole.Worker;
-
-import java.util.List;
 
 /**
  * @author Assylkhan

@@ -12,10 +12,12 @@
 	<artifactId>realq</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>realq</name>
-	<description>Demo project for Spring Boot</description>
+	<packaging>war</packaging>
+	<description>Real Queue!</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencies>
