@@ -19,9 +19,12 @@ import java.util.List;
 @CrossOrigin("*")
 public class CateogryController {
 
-    @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
+    @Autowired
+    public CateogryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     @GetMapping(path = "categories")
     public ResponseEntity<List<Categories>> index(){

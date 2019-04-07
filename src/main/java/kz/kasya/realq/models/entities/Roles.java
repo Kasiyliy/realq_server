@@ -28,7 +28,7 @@ public class Roles {
     public final static String ROLE_MANAGER_NAME = "ROLE_MANAGER";
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(unique = true)

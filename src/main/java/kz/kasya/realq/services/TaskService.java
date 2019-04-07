@@ -31,24 +31,25 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class TaskService {
-    @Autowired
-    TaskRepository taskRepository;
 
+    private TaskRepository taskRepository;
     private SessionFactory hibernateFactory;
 
     @Autowired
-    public TaskService(EntityManagerFactory factory) {
-        if(factory.unwrap(SessionFactory.class) == null){
+    public TaskService(EntityManagerFactory factory,
+                       TaskRepository taskRepository) {
+        if (factory.unwrap(SessionFactory.class) == null) {
             throw new NullPointerException("factory is not a hibernate factory");
         }
         this.hibernateFactory = factory.unwrap(SessionFactory.class);
+        this.taskRepository = taskRepository;
     }
 
-    public List<Tasks> getAllWithTrashed(){
+    public List<Tasks> getAllWithTrashed() {
         return taskRepository.findAll();
     }
 
-    public List<Tasks> getAll(Boolean desc){
+    public List<Tasks> getAll(Boolean desc) {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
@@ -57,38 +58,38 @@ public class TaskService {
         Predicate predicate = criteriaBuilder.isNull(root.get("deletedAt"));
         Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
         Predicate predicate3 = criteriaBuilder.isFalse(root.get("completed"));
-        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2,predicate3);
-        if(desc == null || desc.equals(true)){
+        Predicate andPredicate = criteriaBuilder.and(predicate, predicate2, predicate3);
+        if (desc == null || desc.equals(true)) {
             criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
-        }else{
+        } else {
             criteriaQuery.orderBy(criteriaBuilder.asc(root.get("id")));
         }
         criteriaQuery.where(andPredicate);
         List<Tasks> tasks = session.createQuery(criteriaQuery).list();
         session.close();
-        return  tasks;
+        return tasks;
     }
 
-    public List<TaskWithWorker> getAllNoCompleted(Boolean desc){
+    public List<TaskWithWorker> getAllNoCompleted(Boolean desc) {
         Session session = hibernateFactory.openSession();
 
         String hql = "FROM Tasks t where t.deletedAt is null and t.completed = false";
 
-        if(desc == null || desc.equals(true)){
+        if (desc == null || desc.equals(true)) {
             hql += " order by id desc";
-        }else{
+        } else {
             hql += " order by id asc";
         }
         Query query = session.createQuery(hql);
         List<Tasks> tasks = query.getResultList();
         session.close();
 
-        List<TaskWithWorker> taskWithWorkers = tasks.stream().map((t -> new TaskWithWorker(t,t.getWorker()))).collect(Collectors.toList());
+        List<TaskWithWorker> taskWithWorkers = tasks.stream().map((t -> new TaskWithWorker(t, t.getWorker()))).collect(Collectors.toList());
 
-        return  taskWithWorkers;
+        return taskWithWorkers;
     }
 
-    public List<Tasks> getAllWithFixedNumberAndExcept(int count, List<Long> ids, Boolean desc){
+    public List<Tasks> getAllWithFixedNumberAndExcept(int count, List<Long> ids, Boolean desc) {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
@@ -98,39 +99,39 @@ public class TaskService {
         Predicate predicate2 = criteriaBuilder.isNull(root.get("worker"));
         Predicate predicate3 = criteriaBuilder.not(root.get("id").in(ids));
         Predicate predicate4 = criteriaBuilder.isFalse(root.get("completed"));
-        Predicate andPredicate = criteriaBuilder.and(predicate,predicate2, predicate3,predicate4);
-        if(desc == null || desc.equals(true)){
+        Predicate andPredicate = criteriaBuilder.and(predicate, predicate2, predicate3, predicate4);
+        if (desc == null || desc.equals(true)) {
             criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
-        }else{
+        } else {
             criteriaQuery.orderBy(criteriaBuilder.asc(root.get("id")));
         }
         criteriaQuery.where(andPredicate);
         List<Tasks> tasks = session.createQuery(criteriaQuery).setMaxResults(count).list();
         session.close();
-        return  tasks;
+        return tasks;
     }
 
-    public Tasks getTaskByJobs(Set<Jobs> jobs){
+    public Tasks getTaskByJobs(Set<Jobs> jobs) {
         Session session = hibernateFactory.openSession();
         List<Long> ids = jobs.stream().map(Jobs::getId).collect(Collectors.toList());
         String hql = "select t FROM Tasks t inner join t.job j where t.deletedAt is null and t.completed = false " +
                 " and t.worker is null and j.id in (:ids) group by t.id having t.id = max(t.id) ";
         Tasks task = null;
-        try{
+        try {
 
             task = (Tasks) session.createQuery(hql)
                     .setMaxResults(1)
-                    .setParameterList("ids" , ids)
+                    .setParameterList("ids", ids)
                     .getSingleResult();
-        }catch (Exception e){
+        } catch (Exception e) {
             log.info(e.getMessage());
-        }finally {
+        } finally {
             session.close();
         }
         return task;
     }
 
-    public List<Tasks> getAllWithServiced(){
+    public List<Tasks> getAllWithServiced() {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Tasks> criteriaQuery = criteriaBuilder.createQuery(Tasks.class);
@@ -141,50 +142,50 @@ public class TaskService {
         criteriaQuery.where(predicate);
         List<Tasks> tasks = session.createQuery(criteriaQuery).list();
         session.close();
-        return  tasks;
+        return tasks;
     }
 
-    public Tasks getById(Long id){
+    public Tasks getById(Long id) {
         Optional<Tasks> jobOptional = taskRepository.findById(id);
 
-        if(jobOptional.isPresent()){
+        if (jobOptional.isPresent()) {
             return jobOptional.get();
-        }else{
+        } else {
             return null;
         }
     }
 
-    public boolean add(Tasks task){
-        if(task==null || task.getId()!=null || task.getJob()==null){
+    public boolean add(Tasks task) {
+        if (task == null || task.getId() != null || task.getJob() == null) {
             return false;
-        }else{
+        } else {
             taskRepository.save(task);
             return true;
         }
     }
 
-    public boolean update(Tasks task){
-        if(task==null || task.getId()==null){
+    public boolean update(Tasks task) {
+        if (task == null || task.getId() == null) {
             return false;
-        }else{
+        } else {
             taskRepository.save(task);
             return true;
         }
     }
 
-    public boolean realDelete(Tasks job){
-        if(job==null || job.getId()==null){
+    public boolean realDelete(Tasks job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             taskRepository.delete(job);
             return true;
         }
     }
 
-    public boolean delete(Tasks task){
-        if(task==null || task.getId()==null){
+    public boolean delete(Tasks task) {
+        if (task == null || task.getId() == null) {
             return false;
-        }else{
+        } else {
             task.setDeletedAt(new Date());
             taskRepository.save(task);
             return true;

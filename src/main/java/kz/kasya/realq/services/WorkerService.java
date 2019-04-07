@@ -32,29 +32,29 @@ import java.util.stream.Collectors;
  * @project realq
  */
 @Service
-public class WorkerService implements UserDetailsService
+public class WorkerService implements UserDetailsService {
 
-{
-    @Autowired
-    WorkerRepository workerRepository;
+    private WorkerRepository workerRepository;
 
     private SessionFactory hibernateFactory;
 
 
     @Autowired
-    public WorkerService(EntityManagerFactory factory) {
-        if(factory.unwrap(SessionFactory.class) == null){
+    public WorkerService(EntityManagerFactory factory,
+                         WorkerRepository workerRepository) {
+        if (factory.unwrap(SessionFactory.class) == null) {
             throw new NullPointerException("factory is not a hibernate factory");
         }
         this.hibernateFactory = factory.unwrap(SessionFactory.class);
+        this.workerRepository = workerRepository;
     }
 
-    public Workers getById(Long id){
+    public Workers getById(Long id) {
         Optional<Workers> jobOptional = workerRepository.findById(id);
 
-        if(jobOptional.isPresent()){
+        if (jobOptional.isPresent()) {
             return jobOptional.get();
-        }else{
+        } else {
             return null;
         }
     }
@@ -62,13 +62,13 @@ public class WorkerService implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         Workers user = findByLogin(login);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
     }
 
-    public Workers findByLogin(String login){
+    public Workers findByLogin(String login) {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Workers> criteriaQuery = criteriaBuilder.createQuery(Workers.class);
@@ -76,25 +76,25 @@ public class WorkerService implements UserDetailsService
 
         Predicate predicate1 = criteriaBuilder.isNull(root.get("deletedAt"));
         Predicate predicate2 = criteriaBuilder.equal(root.get("login"), login);
-        Predicate andPredicate = criteriaBuilder.and(predicate1,predicate2);
+        Predicate andPredicate = criteriaBuilder.and(predicate1, predicate2);
 
         criteriaQuery.where(andPredicate);
-        Workers worker ;
-        try{
+        Workers worker;
+        try {
             worker = session.createQuery(criteriaQuery).getSingleResult();
-        }catch (Exception e){
+        } catch (Exception e) {
             worker = null;
         }
         session.close();
-        return  worker;
+        return worker;
     }
 
-    public Workers findByLoginWithTrashed(String login){
+    public Workers findByLoginWithTrashed(String login) {
         Workers worker = workerRepository.findByLogin(login);
         return worker;
     }
 
-    public boolean isLoginAlreadyInUse(String login){
+    public boolean isLoginAlreadyInUse(String login) {
         return findByLoginWithTrashed(login) != null;
     }
 
@@ -105,31 +105,31 @@ public class WorkerService implements UserDetailsService
         return authorities;
     }
 
-    public Workers getFreeWorkerByJobs(Jobs job){
+    public Workers getFreeWorkerByJobs(Jobs job) {
         Session session = hibernateFactory.openSession();
 
         String hql = "select w FROM Workers w inner join w.jobs j where w.deletedAt is null  " +
                 " and w.task is null and j.id = (:id) order by j.createdAt asc";
         Workers worker = null;
-        try{
+        try {
 
             worker = (Workers) session.createQuery(hql)
                     .setMaxResults(1)
-                    .setParameter("id" , job.getId())
+                    .setParameter("id", job.getId())
                     .getSingleResult();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
         return worker;
     }
 
-    public List<Workers> getAllWithTrashed(){
+    public List<Workers> getAllWithTrashed() {
         return workerRepository.findAll();
     }
 
-    public List<Workers> getAll(){
+    public List<Workers> getAll() {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Workers> criteriaQuery = criteriaBuilder.createQuery(Workers.class);
@@ -140,40 +140,40 @@ public class WorkerService implements UserDetailsService
         criteriaQuery.where(predicate);
         List<Workers> workers = session.createQuery(criteriaQuery).list();
         session.close();
-        return  workers;
+        return workers;
     }
 
-    public boolean add(Workers worker){
-        if(worker==null || worker.getId()!=null){
+    public boolean add(Workers worker) {
+        if (worker == null || worker.getId() != null) {
             return false;
-        }else{
+        } else {
             workerRepository.save(worker);
             return true;
         }
     }
 
-    public boolean update(Workers job){
-        if(job==null || job.getId()==null){
+    public boolean update(Workers job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             workerRepository.save(job);
             return true;
         }
     }
 
-    public boolean realDelete(Workers job){
-        if(job==null || job.getId()==null){
+    public boolean realDelete(Workers job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             workerRepository.delete(job);
             return true;
         }
     }
 
-    public boolean delete(Workers worker){
-        if(worker==null || worker.getId()==null){
+    public boolean delete(Workers worker) {
+        if (worker == null || worker.getId() == null) {
             return false;
-        }else{
+        } else {
             worker.setDeletedAt(new Date());
             workerRepository.save(worker);
             return true;

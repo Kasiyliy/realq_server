@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categories extends AuditModel{
+public class Categories extends AuditModel {
     @NotNull(message = "name is required")
     private @NonNull String name;
 }

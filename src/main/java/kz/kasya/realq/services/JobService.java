@@ -24,24 +24,25 @@ import java.util.Optional;
  */
 @Service
 public class JobService {
-    @Autowired
-    JobRepository jobRepository;
 
+    private JobRepository jobRepository;
     private SessionFactory hibernateFactory;
 
     @Autowired
-    public JobService(EntityManagerFactory factory) {
-        if(factory.unwrap(SessionFactory.class) == null){
+    public JobService(EntityManagerFactory factory,
+                      JobRepository jobRepository) {
+        if (factory.unwrap(SessionFactory.class) == null) {
             throw new NullPointerException("factory is not a hibernate factory");
         }
         this.hibernateFactory = factory.unwrap(SessionFactory.class);
+        this.jobRepository = jobRepository;
     }
 
-    public List<Jobs> getAllWithTrashed(){
+    public List<Jobs> getAllWithTrashed() {
         return jobRepository.findAll();
     }
 
-    public List<Jobs> getAll(){
+    public List<Jobs> getAll() {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Jobs> criteriaQuery = criteriaBuilder.createQuery(Jobs.class);
@@ -53,10 +54,10 @@ public class JobService {
         List<Jobs> jobs = session.createQuery(criteriaQuery).list();
 
         session.close();
-        return  jobs;
+        return jobs;
     }
 
-    public List<Jobs> getAllBy(Categories category){
+    public List<Jobs> getAllBy(Categories category) {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Jobs> criteriaQuery = criteriaBuilder.createQuery(Jobs.class);
@@ -70,50 +71,50 @@ public class JobService {
         List<Jobs> jobs = session.createQuery(criteriaQuery).list();
 
         session.close();
-        return  jobs;
+        return jobs;
     }
 
-    public Jobs getById(Long id){
+    public Jobs getById(Long id) {
         Optional<Jobs> jobOptional = jobRepository.findById(id);
 
-        if(jobOptional.isPresent()){
+        if (jobOptional.isPresent()) {
             return jobOptional.get();
-        }else{
+        } else {
             return null;
         }
     }
 
-    public boolean add(Jobs job){
-        if(job==null || job.getId()!=null || job.getCategory()==null){
+    public boolean add(Jobs job) {
+        if (job == null || job.getId() != null || job.getCategory() == null) {
             return false;
-        }else{
+        } else {
             jobRepository.save(job);
             return true;
         }
     }
 
-    public boolean update(Jobs job){
-        if(job==null || job.getId()==null){
+    public boolean update(Jobs job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             jobRepository.save(job);
             return true;
         }
     }
 
-    public boolean realDelete(Jobs job){
-        if(job==null || job.getId()==null){
+    public boolean realDelete(Jobs job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             jobRepository.delete(job);
             return true;
         }
     }
 
-    public boolean delete(Jobs job){
-        if(job==null || job.getId()==null){
+    public boolean delete(Jobs job) {
+        if (job == null || job.getId() == null) {
             return false;
-        }else{
+        } else {
             job.setDeletedAt(new Date());
             jobRepository.save(job);
             return true;

@@ -22,6 +22,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     private WorkerService workerService;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public WebSecurity(WorkerService workerService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.workerService = workerService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -44,6 +45,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()));
     }
+
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(workerService).passwordEncoder(bCryptPasswordEncoder);

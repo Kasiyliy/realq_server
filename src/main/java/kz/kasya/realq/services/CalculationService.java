@@ -15,11 +15,16 @@ import java.util.List;
 @Service
 public class CalculationService {
 
-    @Autowired
-    TaskService taskService;
+
+    private TaskService taskService;
+    private WorkerService workerService;
 
     @Autowired
-    WorkerService workerService;
+    public CalculationService(TaskService taskService,
+                              WorkerService workerService) {
+        this.taskService = taskService;
+        this.workerService = workerService;
+    }
 
     public synchronized Workers getTaskForWorker(Workers worker) {
         Tasks task = taskService.getTaskByJobs(worker.getJobs());
@@ -32,7 +37,7 @@ public class CalculationService {
         return worker;
     }
 
-    public synchronized void addTask(Tasks task){
+    public synchronized void addTask(Tasks task) {
         taskService.add(task);
     }
 

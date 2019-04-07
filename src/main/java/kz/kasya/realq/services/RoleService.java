@@ -15,15 +15,19 @@ import java.util.Optional;
  */
 @Service
 public class RoleService {
+
+    private RoleRepository roleRepository;
+
     @Autowired
-    RoleRepository roleRepository;
+    public RoleService(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
-
-    public List<Roles> getAll(){
+    public List<Roles> getAll() {
         return roleRepository.findAll();
     }
 
-    public Roles getById(Long id){
+    public Roles getById(Long id) {
 
         Roles r = new Roles();
 
@@ -31,7 +35,7 @@ public class RoleService {
         return jobOptional.isPresent() ? jobOptional.get() : null;
     }
 
-    public Roles getByName(String name){
+    public Roles getByName(String name) {
         Optional<Roles> jobOptional = roleRepository.findByName(name);
         return jobOptional.isPresent() ? jobOptional.get() : null;
     }

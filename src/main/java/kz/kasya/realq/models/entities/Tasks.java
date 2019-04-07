@@ -18,17 +18,17 @@ import javax.validation.constraints.NotNull;
 @Table(name = "tasks")
 @Data
 @NoArgsConstructor
-public class Tasks extends AuditModel{
+public class Tasks extends AuditModel {
 
     @NotNull(message = "iin is required")
     private String iin;
 
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @NotNull(message = "job is required")
     private Jobs job;
 
     @JsonIgnore
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Workers worker;
 
     private boolean completed = false;

@@ -35,7 +35,7 @@ public class Workers extends AuditModel {
     @NotNull(message = "password is required")
     private String password;
 
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Tasks task;
 
     @ManyToMany(fetch = FetchType.EAGER)

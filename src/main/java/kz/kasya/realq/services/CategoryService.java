@@ -23,25 +23,25 @@ import java.util.Optional;
  */
 @Service
 public class CategoryService {
-    @Autowired
-    CategoryRepository categoryRepository;
 
-
+    private CategoryRepository categoryRepository;
     private SessionFactory hibernateFactory;
 
     @Autowired
-    public CategoryService(EntityManagerFactory factory) {
-        if(factory.unwrap(SessionFactory.class) == null){
+    public CategoryService(EntityManagerFactory factory,
+                           CategoryRepository categoryRepository) {
+        if (factory.unwrap(SessionFactory.class) == null) {
             throw new NullPointerException("factory is not a hibernate factory");
         }
         this.hibernateFactory = factory.unwrap(SessionFactory.class);
+        this.categoryRepository = categoryRepository;
     }
 
-    public List<Categories> getAllWithTrashed(){
+    public List<Categories> getAllWithTrashed() {
         return categoryRepository.findAll();
     }
 
-    public List<Categories> getAll(){
+    public List<Categories> getAll() {
         Session session = hibernateFactory.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<Categories> criteriaQuery = criteriaBuilder.createQuery(Categories.class);
@@ -51,51 +51,51 @@ public class CategoryService {
         criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         List<Categories> categories = session.createQuery(criteriaQuery).list();
         session.close();
-        return  categories;
+        return categories;
     }
 
-    public Categories getById(Long id){
+    public Categories getById(Long id) {
         Optional<Categories> jobOptional = categoryRepository.findById(id);
 
-        if(jobOptional.isPresent()){
+        if (jobOptional.isPresent()) {
             return jobOptional.get();
-        }else{
+        } else {
             return null;
         }
     }
 
-    public boolean add(Categories category){
-        if(category==null || category.getId()!=null ){
+    public boolean add(Categories category) {
+        if (category == null || category.getId() != null) {
             return false;
-        }else{
+        } else {
             categoryRepository.save(category);
             return true;
         }
     }
 
-    public boolean update(Categories category){
-        if(category==null || category.getId()==null){
+    public boolean update(Categories category) {
+        if (category == null || category.getId() == null) {
             return false;
-        }else{
+        } else {
             categoryRepository.save(category);
             return true;
         }
     }
 
-    public boolean delete(Categories category){
-        if(category==null || category.getId()==null){
+    public boolean delete(Categories category) {
+        if (category == null || category.getId() == null) {
             return false;
-        }else{
+        } else {
             category.setDeletedAt(new Date());
             categoryRepository.save(category);
             return true;
         }
     }
 
-    public boolean realDelete(Categories category){
-        if(category==null || category.getId()==null){
+    public boolean realDelete(Categories category) {
+        if (category == null || category.getId() == null) {
             return false;
-        }else{
+        } else {
             categoryRepository.delete(category);
             return true;
         }

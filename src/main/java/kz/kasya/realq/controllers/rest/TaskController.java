@@ -21,8 +21,12 @@ import java.util.List;
 @CrossOrigin("*")
 public class TaskController {
 
+    private TaskService taskService;
+
     @Autowired
-    TaskService taskService;
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping(path = "tasks")
     public ResponseEntity<List<Tasks>> index(@RequestParam(required = false) Integer count,

@@ -21,12 +21,15 @@ import java.util.List;
 @CrossOrigin("*")
 public class WorkerController {
 
-    @Autowired
-    WorkerService workerService;
+    private WorkerService workerService;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    public WorkerController(WorkerService workerService,
+                            BCryptPasswordEncoder bCryptPasswordEncoder){
+        this.workerService = workerService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     @GetMapping(path = "workers")
     public ResponseEntity<List<Workers>> index(){

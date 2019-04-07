@@ -23,11 +23,14 @@ import java.util.List;
 public class JobController {
 
 
-    @Autowired
-    JobService jobService;
+    private JobService jobService;
+    private CategoryService categoryService;
 
     @Autowired
-    CategoryService categoryService;
+    public JobController(JobService jobService, CategoryService categoryService) {
+        this.jobService = jobService;
+        this.categoryService = categoryService;
+    }
 
     @GetMapping(path = "jobs")
     public ResponseEntity<List<Jobs>> index(@RequestParam(required = false) Long categoryId) {

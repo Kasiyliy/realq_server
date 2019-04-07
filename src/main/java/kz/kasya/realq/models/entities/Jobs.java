@@ -22,11 +22,11 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Jobs extends AuditModel{
+public class Jobs extends AuditModel {
 
     private String name;
 
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @NotNull(message = "category is required")
     private Categories category;
 }

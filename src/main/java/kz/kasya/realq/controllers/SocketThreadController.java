@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -36,8 +37,10 @@ public class SocketThreadController {
 
 
     @Autowired
-    public SocketThreadController(SimpMessagingTemplate template, CalculationService calculationService,
-                                  WorkerService workerService, TaskService taskService) {
+    public SocketThreadController(SimpMessagingTemplate template,
+                                  CalculationService calculationService,
+                                  WorkerService workerService,
+                                  TaskService taskService) {
         this.template = template;
         this.calculationService = calculationService;
         this.workerService = workerService;
