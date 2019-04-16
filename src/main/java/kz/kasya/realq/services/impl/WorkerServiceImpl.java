@@ -126,6 +126,11 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
+    public List<Workers> getAllManagers() {
+        return workerRepository.findAllManagerWorkers();
+    }
+
+    @Override
     public List<Workers> getAllWithTrashed() {
         return workerRepository.findAll();
     }

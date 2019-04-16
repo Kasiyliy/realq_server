@@ -59,5 +59,6 @@ public interface WorkerService extends UserDetailsService {
 
     boolean delete(Workers worker);
 
+    List<Workers> getAllManagers();
 
 }

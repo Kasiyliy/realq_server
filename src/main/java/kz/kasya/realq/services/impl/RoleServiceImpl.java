@@ -28,9 +28,7 @@ public class RoleServiceImpl {
     }
 
     public Roles getById(Long id) {
-
         Roles r = new Roles();
-
         Optional<Roles> jobOptional = roleRepository.findById(id);
         return jobOptional.isPresent() ? jobOptional.get() : null;
     }

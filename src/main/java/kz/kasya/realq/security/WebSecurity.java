@@ -11,9 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static kz.kasya.realq.security.SecurityConstants.LOGIN_URL;
-import static kz.kasya.realq.security.SecurityConstants.SIGN_UP_URL;
-import static kz.kasya.realq.security.SecurityConstants.SOCKET_URL;
+import static kz.kasya.realq.security.SecurityConstants.*;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -37,6 +35,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(SOCKET_URL).permitAll()
                 .antMatchers(SIGN_UP_URL).permitAll()
+                .antMatchers(ADD_TASK_URL).permitAll()
                 .antMatchers(LOGIN_URL).permitAll()
                 .antMatchers(HttpMethod.GET, "**").permitAll()
                 .anyRequest().authenticated()

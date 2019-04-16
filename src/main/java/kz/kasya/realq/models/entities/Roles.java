@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 
 /**
@@ -23,9 +21,11 @@ public class Roles {
 
     public final static Long ROLE_ADMIN_ID = 1L;
     public final static Long ROLE_MANAGER_ID = 2L;
+    public final static Long ROLE_GUEST_ID = 3L;
 
     public final static String ROLE_ADMIN_NAME = "ROLE_ADMIN";
     public final static String ROLE_MANAGER_NAME = "ROLE_MANAGER";
+    public final static String ROLE_GUEST_NAME = "ROLE_GUEST";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
