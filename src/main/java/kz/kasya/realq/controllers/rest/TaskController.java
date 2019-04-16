@@ -1,11 +1,13 @@
 package kz.kasya.realq.controllers.rest;
 
+import kz.kasya.realq.models.entities.Roles;
 import kz.kasya.realq.models.entities.Tasks;
 import kz.kasya.realq.models.responses.TaskWithWorker;
 import kz.kasya.realq.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;

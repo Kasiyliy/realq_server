@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -61,7 +62,8 @@ public class WorkerServiceImpl implements WorkerService {
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getAuthority(user));
+        User authUser = new User(user.getLogin(), user.getPassword(), getAuthority(user));
+        return authUser;
     }
 
     @Override
@@ -98,10 +100,8 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public Set getAuthority(Workers user) {
-        Set authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
-        return authorities;
+    public List getAuthority(Workers user) {
+        return Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getName()));
     }
 
     @Override

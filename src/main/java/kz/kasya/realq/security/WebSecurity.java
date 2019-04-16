@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import static kz.kasya.realq.security.SecurityConstants.*;
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true, securedEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private WorkerService workerService;
@@ -41,7 +41,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .antMatcher("/**").cors().and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+                .addFilter(new JWTAuthenticationFilter(authenticationManager(),workerService))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()));
     }
 

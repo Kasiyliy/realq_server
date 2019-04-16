@@ -1,10 +1,13 @@
 package kz.kasya.realq.controllers.rest;
 
 import kz.kasya.realq.models.entities.Categories;
+import kz.kasya.realq.models.entities.Roles;
 import kz.kasya.realq.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +20,12 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "api")
 @CrossOrigin("*")
-public class CateogryController {
+public class CategoryController {
 
     private CategoryService categoryService;
 
     @Autowired
-    public CateogryController(CategoryService categoryService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 

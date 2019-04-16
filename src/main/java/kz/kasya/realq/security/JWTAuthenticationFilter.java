@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import kz.kasya.realq.models.entities.Workers;
+import kz.kasya.realq.services.WorkerService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,16 +23,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 
 import static kz.kasya.realq.security.SecurityConstants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
+    private WorkerService workerService;
 
-
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager,
+                                   WorkerService workerService) {
         this.authenticationManager = authenticationManager;
+        this.workerService = workerService;
     }
 
     @Override
@@ -40,11 +44,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         try {
             Workers creds = new ObjectMapper()
                     .readValue(req.getInputStream(), Workers.class);
+            Workers realWorker = workerService.findByLogin(creds.getLogin());
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getLogin(),
                             creds.getPassword(),
-                            new ArrayList<>())
+                            Collections.singletonList(new SimpleGrantedAuthority(realWorker.getRole().getName())))
             );
         } catch (IOException e) {
             throw new RuntimeException(e);

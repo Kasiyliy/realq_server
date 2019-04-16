@@ -2,7 +2,6 @@ package kz.kasya.realq.controllers.rest;
 
 import kz.kasya.realq.models.entities.Roles;
 import kz.kasya.realq.models.entities.Workers;
-import kz.kasya.realq.services.RoleService;
 import kz.kasya.realq.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Assylkhan
@@ -38,7 +36,7 @@ public class WorkerController {
     }
 
     @GetMapping(path = "workers")
-    public ResponseEntity<List<Workers>> index() {
+    public ResponseEntity<List<Workers>> index(Authentication authentication) {
         return new ResponseEntity<List<Workers>>(workerService.getAll(), HttpStatus.OK);
     }
 
@@ -66,12 +64,12 @@ public class WorkerController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+
     @DeleteMapping(path = "workers/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         Workers category = workerService.getById(id);
         return workerService.delete(category) ? ResponseEntity.status(HttpStatus.OK).build() :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-
     }
 
     @RequestMapping(path = "workers/{id}", method = {RequestMethod.PATCH, RequestMethod.PUT})
