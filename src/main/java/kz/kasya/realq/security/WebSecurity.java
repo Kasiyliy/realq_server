@@ -42,7 +42,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .antMatcher("/**").cors().and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(),workerService))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()));
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(),workerService));
     }
 
     @Override

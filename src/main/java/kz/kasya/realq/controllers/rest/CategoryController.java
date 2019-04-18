@@ -22,6 +22,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class CategoryController {
 
+
     private CategoryService categoryService;
 
     @Autowired
@@ -42,6 +43,7 @@ public class CategoryController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(path = "categories/{id}")
     public ResponseEntity delete(@PathVariable Long id){
         Categories category = categoryService.getById(id);
@@ -50,12 +52,14 @@ public class CategoryController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "categories/{id}", method = {RequestMethod.PATCH , RequestMethod.PUT})
     public ResponseEntity update(@RequestBody Categories category){
         return categoryService.update(category) ? new ResponseEntity<Categories>(category, HttpStatus.OK):
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "categories")
     public ResponseEntity<Categories> add(@RequestBody Categories category){
         return categoryService.add(category) ? new ResponseEntity<Categories>(category,HttpStatus.ACCEPTED):

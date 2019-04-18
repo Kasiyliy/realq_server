@@ -6,6 +6,7 @@ import kz.kasya.realq.services.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -35,10 +36,12 @@ public class WorkerController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(path = "workers")
-    public ResponseEntity<List<Workers>> index(Authentication authentication) {
+    public ResponseEntity<List<Workers>> index() {
         return new ResponseEntity<List<Workers>>(workerService.getAll(), HttpStatus.OK);
     }
+
 
     @GetMapping(path = "workers/managers")
     public ResponseEntity<List<Workers>> managers(Authentication authentication) {
@@ -64,7 +67,7 @@ public class WorkerController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(path = "workers/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         Workers category = workerService.getById(id);

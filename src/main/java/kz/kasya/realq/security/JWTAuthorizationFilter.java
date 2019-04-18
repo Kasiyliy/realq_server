@@ -1,8 +1,11 @@
 package kz.kasya.realq.security;
 
 import io.jsonwebtoken.Jwts;
+import kz.kasya.realq.models.entities.Workers;
+import kz.kasya.realq.services.WorkerService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
@@ -12,13 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static kz.kasya.realq.security.SecurityConstants.*;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
-    public JWTAuthorizationFilter(AuthenticationManager authManager) {
+    private WorkerService workerService;
+    public JWTAuthorizationFilter(AuthenticationManager authManager,
+                                  WorkerService workerService) {
         super(authManager);
+        this.workerService = workerService;
     }
 
     @Override
@@ -44,7 +51,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .getBody()
                     .getSubject();
             if (user != null) {
-                return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+                Workers worker = workerService.findByLogin(user);
+                return new UsernamePasswordAuthenticationToken(user, null,
+                        Collections.singletonList(new SimpleGrantedAuthority(worker.getRole().getName())));
             }
             return null;
         }

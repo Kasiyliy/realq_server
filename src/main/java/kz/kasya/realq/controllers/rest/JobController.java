@@ -52,6 +52,7 @@ public class JobController {
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(path = "jobs/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         Jobs job = jobService.getById(id);
@@ -60,12 +61,14 @@ public class JobController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "jobs/{id}", method = {RequestMethod.PATCH, RequestMethod.PUT})
     public ResponseEntity update(@RequestBody Jobs job) {
         return jobService.update(job) ? new ResponseEntity<Jobs>(job, HttpStatus.OK) :
                 ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(path = "jobs")
     public ResponseEntity add(@RequestBody Jobs job) {
         return jobService.add(job) ? new ResponseEntity<Jobs>(job, HttpStatus.ACCEPTED) :
