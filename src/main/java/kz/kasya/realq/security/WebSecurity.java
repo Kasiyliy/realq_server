@@ -36,13 +36,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(SOCKET_URL).permitAll()
                 .antMatchers(SIGN_UP_URL).permitAll()
                 .antMatchers(ADD_TASK_URL).permitAll()
+                .antMatchers(IMAGE_URL).permitAll()
                 .antMatchers(LOGIN_URL).permitAll()
                 .antMatchers(HttpMethod.GET, "**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .antMatcher("/**").cors().and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager(),workerService))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager(),workerService));
+                .addFilter(new JWTAuthenticationFilter(authenticationManager(), workerService))
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(), workerService));
     }
 
     @Override

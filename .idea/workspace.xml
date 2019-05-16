@@ -7,16 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db7945a0-93af-4e0e-91dc-e45a4f75340f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tika_tika_core_1_18.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/ImageController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Images.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/ImageRepository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/ImageService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/ImageServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/no-image.png" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/realq_war.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/realq_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/realq_war_exploded.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26751a1d-4fc7-47ee-92cc-f2889e8cd904.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/26751a1d-4fc7-47ee-92cc-f2889e8cd904.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/audits/AuditModel.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/audits/AuditModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthorizationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthorizationFilter.java" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/realq.iml" afterPath="$PROJECT_DIR$/realq.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java" afterPath="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kz/kasya/realq/controllers/rest/JobController.class" afterPath="$PROJECT_DIR$/target/classes/kz/kasya/realq/controllers/rest/JobController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kz/kasya/realq/controllers/rest/WorkerController.class" afterPath="$PROJECT_DIR$/target/classes/kz/kasya/realq/controllers/rest/WorkerController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kz/kasya/realq/models/audits/AuditModel.class" afterPath="$PROJECT_DIR$/target/classes/kz/kasya/realq/models/audits/AuditModel.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/kasya/realq/models/requests/MessageCode.class" afterPath="$PROJECT_DIR$/target/classes/kz/kasya/realq/models/requests/MessageCode.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/kasya/realq/repositories/RoleRepository.class" afterPath="$PROJECT_DIR$/target/classes/kz/kasya/realq/repositories/RoleRepository.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,107 +66,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JobController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java">
+      <file leaf-file-name="ImageController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/ImageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="70" column="42" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-              <folding>
-                <element signature="e#831#832#0" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="561">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1006#1030#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/TaskController.java">
+      <file leaf-file-name="ImageService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/ImageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JWTAuthenticationFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthenticationFilter.java">
+      <file leaf-file-name="ImageServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/ImageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="48" column="47" lean-forward="true" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#693#694#0" expanded="true" />
+                <element signature="e#740#741#0" expanded="true" />
+                <element signature="e#788#789#0" expanded="true" />
+                <element signature="e#824#825#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebSecurity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="43" column="83" lean-forward="false" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JWTAuthorizationFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthorizationFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CorsConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/CorsConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkerService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/WorkerService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Workers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Workers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="37" column="2" lean-forward="false" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
-              <folding />
+      <file leaf-file-name="images" pinned="false" current-in-tab="false">
+        <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.images">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -174,18 +128,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Tasks</find>
-      <find>Job</find>
-      <find>Jobs</find>
       <find>Categories</find>
       <find>tomcat</find>
       <find>public</find>
       <find>findbylogin</find>
+      <find>Jobs</find>
+      <find>Job</find>
     </findStrings>
     <replaceStrings>
       <replace>Workers</replace>
       <replace>Task</replace>
       <replace>Tasks</replace>
       <replace>Roles</replace>
+      <replace>Images</replace>
+      <replace>Image</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,11 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/configurations/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/CorsFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/MyCORSFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SimpleCORSFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/SpringMvcInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/configurations/WebSocketSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/configurations/WebSocketConfig.java" />
@@ -214,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/CorsConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/client/angular.json" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/26751a1d-4fc7-47ee-92cc-f2889e8cd904/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/RealqApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Workers.java" />
@@ -235,9 +185,7 @@
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/RoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Roles.java" />
         <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/WorkerRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CateogryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/WorkerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/TaskController.java" />
@@ -245,11 +193,19 @@
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/WorkerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/audits/AuditModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Image.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/ImageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/ImageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/ImageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/ImageController.java" />
       </list>
     </option>
   </component>
@@ -305,7 +261,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -384,7 +343,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="realq" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="audits" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="realq" type="b2602c69:ProjectViewProjectNode" />
@@ -393,7 +352,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="realq" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="realq" type="b2602c69:ProjectViewProjectNode" />
@@ -430,21 +390,26 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="realq" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realq" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -466,10 +431,12 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="kz.kasya.realq.services.impl" />
       <recent name="kz.kasya.realq.services" />
-      <recent name="kz.kasya.realq.controllers.rest" />
       <recent name="kz.kasya.realq.repositories" />
+      <recent name="kz.kasya.realq.models.entities" />
+      <recent name="kz.kasya.realq.controllers.rest" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
@@ -485,7 +452,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RealqApplication">
+  <component name="RunManager" selected="Tomcat Server.Tommy">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -747,7 +714,19 @@
       <workItem from="1555162165484" duration="3347000" />
       <workItem from="1555325108928" duration="1646000" />
       <workItem from="1555351255460" duration="9113000" />
-      <workItem from="1555561611757" duration="1222000" />
+      <workItem from="1555561611757" duration="1252000" />
+      <workItem from="1555577738738" duration="141000" />
+      <workItem from="1555590263142" duration="446000" />
+      <workItem from="1555595791972" duration="13000" />
+      <workItem from="1555984450995" duration="48000" />
+      <workItem from="1556091411562" duration="866000" />
+      <workItem from="1556341725053" duration="304000" />
+      <workItem from="1556453624757" duration="296000" />
+      <workItem from="1557555843687" duration="208000" />
+      <workItem from="1557557986512" duration="194000" />
+      <workItem from="1557576153972" duration="738000" />
+      <workItem from="1557806586156" duration="832000" />
+      <workItem from="1557978731519" duration="7594000" />
     </task>
     <task id="LOCAL-00001" summary="Initital commit">
       <created>1551509352221</created>
@@ -889,14 +868,22 @@
       <option name="project" value="LOCAL" />
       <updated>1555400876320</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="100% secured">
+      <created>1555562914603</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1555562914603</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154061000" />
+    <option name="totallyTimeSpent" value="165771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -912,7 +899,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4298874" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32036847" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -925,7 +912,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42579323" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.075742066" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21794872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23992674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -993,7 +980,8 @@
     <MESSAGE value="Socket is started to be configure" />
     <MESSAGE value="Spring security is configured!" />
     <MESSAGE value="Refactored code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code" />
+    <MESSAGE value="100% secured" />
+    <option name="LAST_COMMIT_MESSAGE" value="100% secured" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1010,165 +998,77 @@
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/ImageServiceImpl.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="60" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="convertFile.exists()" language="JAVA" />
+        <watch expression="file.exists()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>workerService.getById(1L)</expression-string>
+        <expression-string>oldImage</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>workerRepository.findAllManagers()</expression-string>
+        <expression-string>image.getPath()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks t where t.deletedAt is null and t.completed = false&quot;).list()</expression-string>
+        <expression-string>image.getJob()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks t where t.deletedAt is NOT null and t.completed = false&quot;).list()</expression-string>
+        <expression-string>image.getId()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks t where t.deletedAt is NOT null and t.completed = true&quot;).list()</expression-string>
+        <expression-string>(new FileInputStream(file)).read()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks  where t.deletedAt is NOT null and t.completed = true&quot;).list()</expression-string>
+        <expression-string>file.getAbsolutePath()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks  size = 1&quot;).list()</expression-string>
+        <expression-string>file.exists()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(&quot;FROM Tasks&quot;).list()</expression-string>
+        <expression-string>imageService.getByJobId(2L)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(criteriaQuery).setMaxResults(1).getQueryString()</expression-string>
+        <expression-string>imageService.getById(2L)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>session.createQuery(criteriaQuery).setMaxResults(1).toString()</expression-string>
+        <expression-string>convertFile.exists()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/responses/TaskWithWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Tasks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Categories.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Jobs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/requests/MessageCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/requests/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1578">
-          <caret line="32" column="52" lean-forward="true" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/CalculationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/JobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/RealqApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/RoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/TaskRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/RoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1176,28 +1076,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/JobRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Roles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/JobServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,26 +1090,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="172" lean-forward="false" selection-start-line="4" selection-start-column="172" selection-end-line="4" selection-end-column="177" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/CalculationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,49 +1118,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/configurations/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/WebSocketEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/SocketThreadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.3.RELEASE/spring-security-config-5.1.3.RELEASE.jar!/org/springframework/security/config/annotation/method/configuration/EnableGlobalMethodSecurity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.roles">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1337,29 +1164,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.workers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/audits/AuditModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/CategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1367,23 +1175,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/WorkerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Workers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="37" column="2" lean-forward="false" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
-          <folding />
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1391,15 +1189,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="126" column="36" lean-forward="false" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/WebSocketEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="172" lean-forward="false" selection-start-line="4" selection-start-column="172" selection-end-line="4" selection-end-column="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/RealqApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="43" column="83" lean-forward="false" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1411,62 +1250,263 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthenticationFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/SocketThreadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="48" column="47" lean-forward="true" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+        <state relative-caret-position="456">
+          <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/configurations/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/JWTAuthorizationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="450">
           <caret line="47" column="12" lean-forward="false" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/audits/AuditModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/WorkerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Roles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Tasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Workers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.workers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Jobs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="807">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Categories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/no-image.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/SecurityConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/JobRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/security/WebSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.roles">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding>
+            <marker date="1547460084967" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1547460084967" expanded="false" signature="162:754" ph="..." />
+            <marker date="1547460084967" expanded="false" signature="1216:1227" ph=" { " />
+            <marker date="1547460084967" expanded="false" signature="1248:1254" ph=" }" />
+            <marker date="1547460084967" expanded="false" signature="1317:1328" ph=" { " />
+            <marker date="1547460084967" expanded="false" signature="1348:1354" ph=" }" />
+            <marker date="1547460084967" expanded="true" signature="1476:1532" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="1611:1670" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="1780:1831" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="1925:1996" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="2160:2419" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="2581:4058" ph="{...}" />
+            <marker date="1547460084967" expanded="true" signature="4137:5229" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="50" lean-forward="false" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/repositories/ImageRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/CategoryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/models/entities/Images.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        <state relative-caret-position="270">
+          <caret line="18" column="61" lean-forward="false" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
           <folding>
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/JobController.java">
+    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.jobs">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/948a0145/26751a1d-4fc7-47ee-92cc-f2889e8cd904/realq.images">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/impl/ImageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="70" column="42" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="42" />
+        <state relative-caret-position="135">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/services/ImageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/TaskController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/kz/kasya/realq/controllers/rest/ImageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="561">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1006#1030#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>realq:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -1490,6 +1530,18 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>realq</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -1504,6 +1556,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
